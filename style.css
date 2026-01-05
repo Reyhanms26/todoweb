@@ -1,99 +1,45 @@
-/* Navbar */
-.navbar-custom {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  background-color: white;
-}
-.logo{
-  height: 48px;
-}
-.nav-link {
-  color: black !important;
-}
-.nav-link:hover {
-  color: white !important;
-}
-.nav-custom{
-  background-color: #253358 !important;
-  color: white !important;
-  border-radius: 30px;
-}
-.btn.login {
-  list-style: none;
-  border-radius: 30px;
-  border: 1px solid black;
-  padding: 5px 10px;
-  font-weight: 500;
-  background: linear-gradient(#253358 0 0) left/0 100% no-repeat;
-  transition: background-size .4s ease, color .4s;
-  display: inline-block;
-}
-.btn.login:hover {
-  background-size: 100% 100%;
-  color: white !important;
-}
-.btn.login:active{
-  box-shadow: none;
-  transform: scale(0.9);
-}
-.home li{
-  list-style: none;
-  border-radius: 30px;
-  background: linear-gradient(#253358 0 0) left/0 100% no-repeat;
-  transition: background-size .4s ease, color .4s;
-  display: inline-block;
-}
-.home li:hover{
-  background-size: 100% 100%;
-  color: white;
-}
-.home li:active{
-  box-shadow: none;
-  transform: scale(0.9);
-}
-/* ===== MOBILE NAVBAR 1 BARIS ===== */
-@media (max-width: 576px) {
-  .navbar-custom .container {
-    padding: 0 10px;
-  }
-
-  .navbar-custom ul.nav {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    width: 100%;
-  }
-
-  /* logo */
-  .logo {
-    height: 32px;
-  }
-
-  /* menu tengah */
-  .home ul {
-    display: flex;
-    gap: 6px;
-    padding: 0;
-    margin: 0;
-  }
-
-  .home li {
-    padding: 4px 10px;
-    font-size: 13px;
-  }
-
-  .nav-link {
-    padding: 0;
-    white-space: nowrap;
-  }
-
-  /* tombol login */
-  .btn.login {
-    padding: 4px 10px;
+/* Navbar */ .navbar-custom { position: sticky; top: 0; z-index: 999; background-color: white; } .logo{ height: 48px; } .nav-link { color: black !important; } .nav-link:hover { color: white !important; } .nav-custom{ background-color: #253358 !important; color: white !important; border-radius: 30px; } .btn.login { list-style: none; border-radius: 30px; border: 1px solid black; padding: 5px 10px; font-weight: 500; background: linear-gradient(#253358 0 0) left/0 100% no-repeat; transition: background-size .4s ease, color .4s; display: inline-block; } .btn.login:hover { background-size: 100% 100%; color: white !important; } .btn.login:active{ box-shadow: none; transform: scale(0.9); } .home li{ list-style: none; border-radius: 30px; background: linear-gradient(#253358 0 0) left/0 100% no-repeat; transition: background-size .4s ease, color .4s; display: inline-block; } .home li:hover{ background-size: 100% 100%; color: white; } .home li:active{ box-shadow: none; transform: scale(0.9); }
+@media (max-width: 360px) {
+  .home .nav-link {
     font-size: 12px;
-    white-space: nowrap;
+    padding: 4px 6px;
   }
+}
+/* ===== NAVBAR RESPONSIVE MOBILE ===== */
+.navbar-custom .nav {
+  display: flex;
+  flex-wrap: nowrap;        /* ⬅️ ini kuncinya */
+  align-items: center;
+  width: 100%;
+}
+
+/* Tengah (menu Home, Gallery, About) */
+.navbar-custom .nav-item.mx-auto {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* List menu */
+.home ul {
+  display: flex;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Supaya teks muat di HP */
+.home .nav-link {
+  font-size: 14px;
+  padding: 6px 10px;
+  white-space: nowrap;
+}
+
+/* Login button kecilin dikit */
+.btn.login {
+  white-space: nowrap;
+  padding: 5px 12px;
+  font-size: 14px;
 }
 
 
