@@ -110,23 +110,33 @@
 
   /* CARD */
   .card {
-    max-width: 220px;
+    max-width: 120px;          /* card lebih kecil */
     aspect-ratio: 190 / 254;
+    padding: 10px;
+    outline-width: 3px;
+    border-radius: 6px;
+  }
+
+  .card-front,
+  .card-back {
+    padding: 10px;
   }
 
   .title {
-    font-size: 1rem;
+    font-size: 0.85rem;
+    padding-top: 10px;
   }
 
   .subtitle {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
   }
 
   .card-back {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
+    line-height: 1.4;
   }
-}
-@media (max-width: 768px) {
+
+  /* TAP di HP */
   .card:active .card-front {
     transform: translateX(-100%);
   }
@@ -135,7 +145,6 @@
     transform: translateX(0);
   }
 }
-
 
           * {
   margin: 0;
