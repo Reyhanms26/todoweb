@@ -41,20 +41,13 @@ body.dark  .top-bar { background:#1c253a; }
   box-shadow:0 4px 10px rgba(0,0,0,.15);
 }
 
-body.dark .clock-box {
-  background:#2a3550;
-}
+body.dark .clock-box { background:#2a3550; }
 
 .clock { font-size:16px; font-weight:600; }
 #modeText { font-size:11px; opacity:.8; }
 
-.dropdown .btn {
-  background:#ffffff;
-}
-
-body.dark .dropdown .btn {
-  background:#2a3550;
-}
+.dropdown .btn { background:#ffffff; }
+body.dark .dropdown .btn { background:#2a3550; }
 
 .foto { width:24px; }
 
@@ -73,10 +66,30 @@ body.dark .dropdown .btn {
   padding:10px 14px;
 }
 
-/* force text color date & time */
 input[type="date"],
 input[type="time"] {
   color:#000;
+}
+
+/* ================= FORM ================= */
+.todo-form {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:25px; /* jarak ke filter */
+}
+
+/* ================= FILTER ================= */
+.filter {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:30px; /* jarak ke todo list */
+}
+
+.filter-label {
+  font-size:14px;
+  opacity:.8;
 }
 
 /* ================= TODO ================= */
@@ -104,43 +117,64 @@ input[type="time"] {
   color:black;
 }
 
-/* ================= MOBILE LAYOUT ================= */
+/* ================= MOBILE ================= */
 @media (max-width:768px) {
 
   body { padding:20px; }
 
-  /* FORM GRID */
+  /* ===== FORM GRID ===== */
   .todo-form {
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:10px;
+    gap:12px;
+    margin-bottom:20px;
   }
 
-  .todo-form input {
-    width:100%;
+  /* baris 1 */
+  #titleInput,
+  #descInput {
+    font-size:16px;
+    padding:12px;
   }
 
-  .todo-form .full {
+  /* baris 2 */
+  #dateInput,
+  #timeInput,
+  #addBtn {
+    font-size:15px;
+    padding:12px;
+  }
+
+  /* Date | Time | Add = 1 BARIS */
+  #dateInput { grid-column:1; }
+  #timeInput { grid-column:2; }
+  #addBtn {
     grid-column:1 / -1;
+    padding:12px;
   }
 
-  .todo-form .row2 {
-    grid-column:span 1;
-  }
-
-  .todo-form button {
-    grid-column:span 1;
-  }
-
-  /* FILTER GRID */
+  /* ===== FILTER (LEBIH KECIL) ===== */
   .filter {
     display:grid;
-    grid-template-columns:1fr auto auto;
-    gap:10px;
+    grid-template-columns:auto 1fr auto;
+    gap:8px;
     align-items:center;
+    margin-bottom:25px;
   }
 
-  .filter input { width:100%; }
+  .filter-label {
+    font-size:12px;
+  }
+
+  .filter input {
+    font-size:13px;
+    padding:8px;
+  }
+
+  .filter button {
+    font-size:13px;
+    padding:8px 12px;
+  }
 
   .todo-container {
     grid-template-columns:1fr;
@@ -174,15 +208,14 @@ input[type="time"] {
 <div class="todo-form">
   <input id="titleInput" placeholder="Title" class="input">
   <input id="descInput" placeholder="Note" class="input">
-
-  <input type="date" id="dateInput" class="input row2">
-  <input type="time" id="timeInput" class="input row2">
+  <input type="date" id="dateInput" class="input">
+  <input type="time" id="timeInput" class="input">
   <button id="addBtn" class="input1">Add</button>
 </div>
 
 <!-- FILTER -->
 <div class="filter">
-  <label>Filter Date</label>
+  <span class="filter-label">Filter date</span>
   <input type="date" id="filterDate" class="input">
   <button id="resetFilter" class="input1">Reset</button>
 </div>
@@ -190,20 +223,163 @@ input[type="time"] {
 <div class="todo-container" id="todoContainer"></div>
 
 <script>
-function updateClock(){
-  const n=new Date();
-  clock.innerText=n.toLocaleTimeString();
-  if(n.getHours()>=6 && n.getHours()<18){
-    document.body.className="light";
-    modeText.innerText="Day Mode ☀️";
-  }else{
-    document.body.className="dark";
-    modeText.innerText="Night Mode 🌙";
-  }
-}
-setInterval(updateClock,1000);
-updateClock();
-</script>
+    function updateClock() {
+    const now = new Date();
+
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+
+    hours = hours < 10 ? "0" + hours : hours;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    document.getElementById("clock").innerText =
+      `${hours}:${minutes}:${seconds}`;
+
+    setGreetingAndMode(now.getHours());
+    }
+
+    function setGreetingAndMode(hour) {
+      const body = document.body;
+      const modeText = document.getElementById("modeText");
+
+      if (hour >= 6 && hour < 18) {
+        body.className = "light";
+        modeText.innerText = "Day Mode ☀️";
+      } else {
+        body.className = "dark";
+        modeText.innerText = "Night Mode 🌙";
+      }
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+
+  <script>
+    const titleInput = document.getElementById("titleInput");
+    const descInput = document.getElementById("descInput");
+    const dateInput = document.getElementById("dateInput");
+    const timeInput = document.getElementById("timeInput");
+    const addBtn = document.getElementById("addBtn");
+
+    const filterDate = document.getElementById("filterDate");
+    const resetFilter = document.getElementById("resetFilter");
+
+    const todoContainer = document.getElementById("todoContainer");
+
+    let todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+    addBtn.addEventListener("click", () => {
+      if (
+        titleInput.value === "" ||
+        descInput.value === "" ||
+        dateInput.value === "" ||
+        timeInput.value === ""
+      ) {
+        alert("Semua field wajib diisi!");
+        return;
+      }
+
+      const todo = {
+        id: Date.now(),
+        title: titleInput.value,
+        desc: descInput.value,
+        date: dateInput.value,
+        time: timeInput.value,
+        done: false
+      };
+
+      todos.push(todo);
+      saveData();
+      renderTodos(todos);
+      clearInput();
+    });
+
+    function clearInput() {
+      titleInput.value = "";
+      descInput.value = "";
+      dateInput.value = "";
+      timeInput.value = "";
+    }
+
+    function saveData() {
+      localStorage.setItem("todos", JSON.stringify(todos));
+      alert("Note sudah tersimpan");
+    }
+
+    function formatDate(dateStr) {
+      const date = new Date(dateStr);
+      return date.toLocaleDateString("id-ID", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      });
+    }
+
+    function renderTodos(data) {
+      todoContainer.innerHTML = "";
+
+      data.forEach(todo => {
+        const card = document.createElement("div");
+        card.className = `todo-card ${todo.done ? "done" : ""}`;
+
+        card.innerHTML = `
+          <div class="todo-header">
+            <input type="checkbox" ${todo.done ? "checked" : ""}>
+            <h4>${todo.title}</h4>
+          </div>
+          <small>${todo.desc} <br> </small>
+          <small>📅 ${formatDate(todo.date)}</small><br>
+          <small>⏰ ${todo.time}</small>
+
+          <div class="todo-actions">
+            <button class="edit input1"><b>Edit<b></button>
+            <button class="delete input1"><b>Hapus<b></button>
+          </div>
+        `;
+
+        card.querySelector("input").addEventListener("change", () => {
+          todo.done = !todo.done;
+          saveData();
+          renderTodos(todos);
+        });
+
+        card.querySelector(".delete").addEventListener("click", () => {
+          todos = todos.filter(t => t.id !== todo.id);
+          saveData();
+          renderTodos(todos);
+        });
+
+        card.querySelector(".edit").addEventListener("click", () => {
+          titleInput.value = todo.title;
+          descInput.value = todo.desc;
+          dateInput.value = todo.date;
+          timeInput.value = todo.time;
+
+          todos = todos.filter(t => t.id !== todo.id);
+          saveData();
+          renderTodos(todos);
+        });
+
+        todoContainer.appendChild(card);
+      });
+    }
+
+    filterDate.addEventListener("change", () => {
+      const filtered = todos.filter(todo => todo.date === filterDate.value);
+      renderTodos(filtered);
+    });
+
+    resetFilter.addEventListener("click", () => {
+      filterDate.value = "";
+      renderTodos(todos);
+    });
+
+    renderTodos(todos);
+
+  </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
