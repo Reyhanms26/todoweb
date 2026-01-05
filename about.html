@@ -14,12 +14,12 @@
         }
         .see{
         padding-top: 5px;
+        text-align: center;
         }
         .ceo{
         display: flex;
         justify-content: space-evenly;
         padding: 200px 20px 0px;
-        margin-bottom: 150px;
         gap: 35px;
         }
         .ceo2 {
@@ -37,7 +37,6 @@
         border-radius: 8px;
         line-height: 150%;
         padding: 16px;
-        margin-bottom: ;
         background: #253358;
         transition: background-color 0.6s ease-in-out;
         overflow: hidden;
@@ -85,246 +84,196 @@
         .card:hover .card-back {
         transform: translateX(0);
         }
-        /* ===== RESPONSIVE MOBILE ===== */
-@media (max-width: 768px) {
 
-  .ceo {
-    flex-direction: column;
-    padding: 120px 16px 0;
-    gap: 40px;
-    align-items: center;
-    text-align: center;
-  }
+        @media (max-width: 768px) {
+          .ceo {
+            flex-direction: column;
+            padding: 120px 16px 0;
+            gap: 40px;
+            align-items: center;
+            text-align: center;
+          }
+          .ceo2 {
+            align-items: center;
+          }
+          .ceo h1 {
+            font-size: 32px !important;
+            line-height: 1.2;
+          }
+          .see {
+            font-size: 14px;
+            max-width: 320px;
+          }
+          
+          .card {
+            max-width: 150px;
+            aspect-ratio: 190 / 254;
+          }
+          .title {
+            font-size: 1rem;
+          }
+          .subtitle {
+            font-size: 0.85rem;
+          }
+          .card-back {
+            font-size: 0.9rem;
+          }
+          .card:active .card-front {
+            transform: translateX(-100%);
+          }
+          .card:active .card-back {
+            transform: translateX(0);
+          }
+        }
 
-  .ceo2 {
-    align-items: center;
-  }
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: Inter, system-ui, sans-serif;
+        }
+        body {
+          background: #f8fafc;
+          color: #0f172a;
+        }
 
-  .ceo h1 {
-    font-size: 32px !important;
-    line-height: 1.2;
-  }
+        .contact-section {
+          max-width: 1100px;
+          margin: auto;
+          padding: 60px 20px;
+        }
+        .page-title {
+          text-align: center;
+          font-size: 32px;
+          font-weight: 700;
+        }
+        .page-subtitle {
+          text-align: center;
+          margin-top: 6px;
+          margin-bottom: 40px;
+          color: #64748b;
+        }
 
-  .see {
-    font-size: 14px;
-    max-width: 320px;
-  }
+        .contact-wrapper {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 24px;
+        }
+        .contact-info,
+        .contact-form {
+          background: white;
+          padding: 28px;
+          border-radius: 16px;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        .contact-info h2,
+        .contact-form h2 {
+          margin-bottom: 20px;
+          font-size: 22px;
+        }
+        .info-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 12px;
+          font-size: 14px;
+        }
 
-  /* CARD */
-  .card {
-    max-width: 120px;          /* card lebih kecil */
-    aspect-ratio: 190 / 254;
-    padding: 10px;
-    outline-width: 3px;
-    border-radius: 6px;
-  }
+        .map {
+          margin-top: 16px;
+          width: 100%;
+          height: 200px;
+          border-radius: 12px;
+          overflow: hidden;
+        }
+        .map iframe {
+          width: 100%;
+          height: 100%;
+          border: 0;
+        }
 
-  .card-front,
-  .card-back {
-    padding: 10px;
-  }
+        .contact-form form {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+        }
+        .contact-form input,
+        .contact-form textarea {
+          padding: 12px 14px;
+          border-radius: 10px;
+          border: 1px solid #cbd5e1;
+          font-size: 14px;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+          outline: none;
+          border-color: #6366f1;
+          box-shadow: 0 0 0 3px rgba(99,102,241,0.2);
+        }
+        .contact-form button {
+          margin-top: 10px;
+          padding: 14px;
+          border-radius: 12px;
+          border: none;
+          background: #788eca;
+          color: white;
+          font-size: 15px;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        .contact-form button:hover {
+          background: #687fbe;
+        }
 
-  .title {
-    font-size: 0.85rem;
-    padding-top: 10px;
-  }
+        .alert.success {
+          display: block;
+          background: #ecfdf5;
+          color: #065f46;
+          border: 1px solid #10b981;
+        }
+        .alert.error {
+          display: block;
+          
+          background: #fef2f2;
+          color: #7f1d1d;
+          border: 1px solid #ef4444;
+        }
 
-  .subtitle {
-    font-size: 0.75rem;
-  }
-
-  .card-back {
-    font-size: 0.75rem;
-    line-height: 1.4;
-  }
-
-  /* TAP di HP */
-  .card:active .card-front {
-    transform: translateX(-100%);
-  }
-
-  .card:active .card-back {
-    transform: translateX(0);
-  }
-}
-
-          * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Inter, system-ui, sans-serif;
-}
-
-body {
-  background: #f8fafc;
-  color: #0f172a;
-}
-
-/* SECTION */
-.contact-section {
-  max-width: 1100px;
-  margin: auto;
-  padding: 60px 20px;
-}
-
-.page-title {
-  text-align: center;
-  font-size: 32px;
-  font-weight: 700;
-}
-
-.page-subtitle {
-  text-align: center;
-  margin-top: 6px;
-  margin-bottom: 40px;
-  color: #64748b;
-}
-
-/* WRAPPER */
-.contact-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
-/* BOX */
-.contact-info,
-.contact-form {
-  background: white;
-  padding: 28px;
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
-
-/* INFO */
-.contact-info h2,
-.contact-form h2 {
-  margin-bottom: 20px;
-  font-size: 22px;
-}
-
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-  font-size: 14px;
-}
-
-/* MAP */
-.map {
-  margin-top: 16px;
-  width: 100%;
-  height: 200px;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.map iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-/* FORM */
-.contact-form form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #cbd5e1;
-  font-size: 14px;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99,102,241,0.2);
-}
-
-.contact-form button {
-  margin-top: 10px;
-  padding: 14px;
-  border-radius: 12px;
-  border: none;
-  background: #6366f1;
-  color: white;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.contact-form button:hover {
-  background: #4f46e5;
-}
-
-
-/* SUCCESS */
-.alert.success {
-  display: block;
-  background: #ecfdf5;
-  color: #065f46;
-  border: 1px solid #10b981;
-}
-
-/* ERROR */
-.alert.error {
-  display: block;
-  background: #fef2f2;
-  color: #7f1d1d;
-  border: 1px solid #ef4444;
-}
-/* ===== RESPONSIVE MOBILE ===== */
-@media (max-width: 768px) {
-  .contact-section {
-    padding: 40px 16px;
-  }
-
-  .page-title {
-    font-size: 26px;
-  }
-
-  .page-subtitle {
-    font-size: 14px;
-    margin-bottom: 28px;
-  }
-
-  .contact-wrapper {
-    grid-template-columns: 1fr; /* jadi 1 kolom */
-    gap: 20px;
-  }
-
-  .contact-info,
-  .contact-form {
-    padding: 22px;
-  }
-
-  .contact-info h2,
-  .contact-form h2 {
-    font-size: 20px;
-  }
-
-  .map {
-    height: 180px; /* biar ga kegedean di HP */
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    font-size: 14px;
-  }
-
-  .contact-form button {
-    font-size: 14px;
-    padding: 13px;
-  }
-}
-
+        @media (max-width: 768px) {
+          .contact-section {
+            padding: 40px 16px;
+          }
+          .page-title {
+            font-size: 26px;
+          }
+          .page-subtitle {
+            font-size: 14px;
+            margin-bottom: 28px;
+          }
+          .contact-wrapper {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+          .contact-info,
+          .contact-form {
+            padding: 22px;
+          }
+          .contact-info h2,
+          .contact-form h2 {
+            font-size: 20px;
+          }
+          .map {
+            height: 180px;
+          }
+          .contact-form input,
+          .contact-form textarea {
+            font-size: 14px;
+          }
+          .contact-form button {
+            font-size: 14px;
+            padding: 13px;
+          }
+        }
     </style>
 
     <link rel="stylesheet" href="style.css">
@@ -335,223 +284,218 @@ body {
 </head>
 <body>
   <nav class="navbar-custom">
-        <div class="container">
-            <ul class="nav align-items-center">
-                <li class="nav-item">
-                    <a class="navbar-brand" href="#">
-                        <img src="media/logo-terang.png" alt="" class="logo">
-                    </a>
-                </li>
-                <li class="nav-item mx-auto">
-                    <div class="d-flex home">
-                        <ul>
-                            <li><a class="nav-link" href="index.html">Home</a></li>
-                            <li><a class="nav-link" href="galery.html">Gallery<a></a></li>
-                            <li><a class="nav-link nav-custom" href="about.html">About Us</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="btn login" href="login.html" role="button">Log In</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div class="container">
+        <ul class="nav align-items-center">
+            <li class="nav-item">
+                <a class="navbar-brand" href="#">
+                    <img src="media/logo-terang.png" alt="" class="logo">
+                </a>
+            </li>
+            <li class="nav-item mx-auto">
+                <div class="d-flex home">
+                    <ul>
+                        <li><a class="nav-link" href="index.html">Home</a></li>
+                        <li><a class="nav-link" href="galery.html">Gallery<a></a></li>
+                        <li><a class="nav-link nav-custom" href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="btn login" href="login.html" role="button">Log In</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
 
-    <banner>
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="carousel-card">
-                        <div class="row align-items-center">
-                            <div class="col-md-6 text-carousel">
-                                <h5 class="fw-bold mb-3 text-white"> Manage Your Day More Easily </h5>
-                                <p class="text-white">  Record tasks, set priorities, and complete everything on time. </p>
-                            </div>
-                            <div class="col-md-5 text-center">
-                                <img src="media/slide-1.png" class="img-fluid" style="max-height:220px;">
-                            </div>
+  <banner>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="carousel-card">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 text-carousel">
+                            <h5 class="fw-bold mb-3 text-white"> Manage Your Day More Easily </h5>
+                            <p class="text-white">  Record tasks, set priorities, and complete everything on time. </p>
                         </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="carousel-card">
-                        <div class="row align-items-center">
-                            <div class="col-md-6 text-carousel">
-                                <h5 class="fw-bold mb-3 text-white"> Not Sure Where to Start? </h5>
-                                <p class="text-white"> Deadlines piling up, assignments forgotten, and plans falling apart? </p>
-                            </div>
-                            <div class="col-md-5 text-center">
-                                <img src="media/slide-2.png" class="img-fluid" style="max-height:220px;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="carousel-card">
-                        <div class="row align-items-center">
-                            <div class="col-md-6 text-carousel">
-                                <h5 class="fw-bold mb-3 text-white"> All Tasks Are Neatly Arranged </h5>
-                                <p class="text-white"> Create to-do lists, set priorities, and easily monitor your daily progress. </p>
-                            </div>
-                            <div class="col-md-5 text-center">
-                                <img src="media/slide-3.png" class="img-fluid" style="max-height:220px;">
-                            </div>
+                        <div class="col-md-5 text-center">
+                            <img src="media/slide-1.png" class="img-fluid" style="max-height:220px;">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </banner>
-
-    <content>
-        <div class="hero">
-            <div class="content-1">
-                <div class="mascot-container">
-                <img src="media/mascot.png" id="mascot" alt="min.to">
-                <div class="bubble" id="bubble"></div>
+            <div class="carousel-item">
+                <div class="carousel-card">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 text-carousel">
+                            <h5 class="fw-bold mb-3 text-white"> Not Sure Where to Start? </h5>
+                            <p class="text-white"> Deadlines piling up, assignments forgotten, and plans falling apart? </p>
+                        </div>
+                        <div class="col-md-5 text-center">
+                            <img src="media/slide-2.png" class="img-fluid" style="max-height:220px;">
+                        </div>
+                    </div>
                 </div>
-
-                <span>
-                    <span> ABOUT US </span>
-                </span>
             </div>
-        </div>
-        <div class="line">
-            <div>
-            _________________
-            </div>
-        </div>
-    </content>
-
-    <div>
-        <div class="text-center">
-            <h1 class="started main" style="font-size: 50px">
-                <b> Creating global impact by <br> <strong class="text-indigo-600"> simplifying </strong> life’s complexities </b>
-            </h1>
-            <p class="see main">
-                We’ll be here for our users and our teammates for decades to come.
-            </p>
-        </div>
-    </div>
-
-    <div class="ceo">
-        <div class="ceo2">
-            <h1 class="main" style="font-size: 50px">
-                <b>Simplify your <strong class="text-indigo-600"> planning </strong></b>
-            </h1>
-            <p class="see main">
-                You own your team data, we simply help you protect it. 
-            </p>
-        </div>
-        <div class="card main">
-            <div class="card-front">
-                <img class="foto" src="media/fotodiri.png" alt="fotodiri">
-                <p class="title">Reyhan <br> Misbahussuduri</p>
-                <p class="subtitle">Front End</p>
-            </div>
-            <div class="card-back">
-                <p>"By using simple elements such as sections, sub-tasks, and flexible views, we can easily track progress and adapt our projects on the fly."</p>
+            <div class="carousel-item">
+                <div class="carousel-card">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 text-carousel">
+                            <h5 class="fw-bold mb-3 text-white"> All Tasks Are Neatly Arranged </h5>
+                            <p class="text-white"> Create to-do lists, set priorities, and easily monitor your daily progress. </p>
+                        </div>
+                        <div class="col-md-5 text-center">
+                            <img src="media/slide-3.png" class="img-fluid" style="max-height:220px;">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+  </banner>
 
-    
-<section class="contact-section">
-  <h1 class="page-title">Contact Us</h1>
-  <p class="page-subtitle">We’d love to hear from you</p>
+  <content>
+    <div class="hero">
+        <div class="content-1">
+            <div class="mascot-container">
+            <img src="media/mascot.png" id="mascot" alt="min.to">
+            <div class="bubble" id="bubble"></div>
+            </div>
 
-  <div class="contact-wrapper">
-
-    <!-- INFO BOX -->
-    <div class="contact-info">
-      <h2>Get in Touch</h2>
-
-      <div class="info-item">
-        <p>📧 support@yourweb.com</p>
-      </div>
-
-      <div class="info-item">
-        <p>📞 +62 812-3456-7890</p>
-      </div>
-
-      <div class="info-item">
-        <p>📍 Tangerang, Indonesia</p>
-      </div>
-
-      <!-- GOOGLE MAPS -->
-      <div class="map">
-        <iframe
-          src="https://www.google.com/maps?q=Tangerang,Indonesia&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
+            <span>
+                <span> ABOUT US </span>
+            </span>
+        </div>
     </div>
-
-    <!-- FORM BOX -->
-    <div class="contact-form">
-      <h2>Send a Message</h2>
-
-      <div id="alert" class="alert"></div>
-
-      <form id="contactForm">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+    <div class="line">
+        <div>
+        _________________
+        </div>
     </div>
+  </content>
 
+  <div>
+      <div class="text-center">
+          <h1 class="started main" style="font-size: 50px">
+              <b> Creating global impact by <br> <strong class="text-indigo-600"> simplifying </strong> life’s complexities </b>
+          </h1>
+          <p class="see main">
+              We’ll be here for our users and our teammates for decades to come.
+          </p>
+      </div>
   </div>
-</section>
 
-    <footer class="footer">
-        <div class="footer-row">
-            <div class="footer-bottom1">
-                <img src="media/logo-footer.png" alt="" class="logo-footer1">
-                Join millions of people who organize <br> work and life with todo.
-            </div>
-            <div class="social-icons">
-                <a href="https://discord.gg/DbS24qv7"><i class="fab fa-discord"></i></a>
-                <a href="https://www.linkedin.com/in/reyhan-misbahussuduri-945537393/"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/eryahngka_/"><i class="fab fa-instagram"></i></a>
-            </div>
+  <div class="ceo">
+      <div class="ceo2">
+          <h1 class="main" style="font-size: 50px">
+              <b>Simplify your <strong class="text-indigo-600"> planning </strong></b>
+          </h1>
+          <p class="see main">
+              You own your team data, we simply help you protect it. 
+          </p>
+      </div>
+      <div class="card main">
+          <div class="card-front">
+              <img class="foto" src="media/fotodiri.png" alt="fotodiri">
+              <p class="title">Reyhan <br> Misbahussuduri</p>
+              <p class="subtitle">Front End</p>
+          </div>
+          <div class="card-back">
+              <p>"By using simple elements such as sections, sub-tasks, and flexible views, we can easily track progress and adapt our projects on the fly."</p>
+          </div>
+      </div>
+  </div>
+  
+  <section class="contact-section">
+    <h1 class="page-title">Contact Us</h1>
+    <p class="page-subtitle">We’d love to hear from you</p>
+
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+
+        <div class="info-item">
+          <p>📧 ohrayye@gmail.com</p>
         </div>
-        <div class="copy"> &copy; CopyRight Reyhan Misbahussuduri_251011701282_01SIFP014</div>
-    </footer>
 
-    <footer>
-        <div class="footer-bottom">
-            Website made by <img src="media/logo-footer.png" alt="logo-footer" class="logo-footer2">
+        <div class="info-item">
+          <p>📞 +62 877-1404-5743</p>
         </div>
-    </footer>
 
-    <script>
-        const mascot = document.getElementById("mascot");
-        const bubble = document.getElementById("bubble");
+        <div class="info-item">
+          <p>📍 Tangerang, Indonesia</p>
+        </div>
 
-        function typeText(text) {
-        bubble.innerHTML = "";
-        bubble.style.display = "block";
+        <div class="map">
+          <iframe
+            src="https://www.google.com/maps?q=Tangerang,Indonesia&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
 
-        let i = 0;
-        const interval = setInterval(() => {
-            bubble.innerHTML += text[i];
-            i++;
-            if (i >= text.length) clearInterval(interval);
-        }, 80);
-        }
+      <div class="contact-form">
+        <h2>Send a Message</h2>
 
-        mascot.addEventListener("click", () => {
-        mascot.classList.add("wave");
-        typeText("Small team, big vision");
+        <div id="alert" class="alert"></div>
 
-        setTimeout(() => mascot.classList.remove("wave"), 1600);
-        setTimeout(() => bubble.style.display = "none", 3500);
-        });
-    </script>
+        <form id="contactForm">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+      <div class="footer-row">
+          <div class="footer-bottom1">
+              <img src="media/logo-footer.png" alt="" class="logo-footer1">
+              Join millions of people who organize <br> work and life with todo.
+          </div>
+          <div class="social-icons">
+              <a href="https://discord.gg/DbS24qv7"><i class="fab fa-discord"></i></a>
+              <a href="https://www.linkedin.com/in/reyhan-misbahussuduri-945537393/"><i class="fab fa-linkedin"></i></a>
+              <a href="https://www.instagram.com/eryahngka_/"><i class="fab fa-instagram"></i></a>
+          </div>
+      </div>
+      <div class="copy"> &copy; CopyRight Reyhan Misbahussuduri_251011701282_01SIFP014</div>
+  </footer>
+
+  <footer>
+      <div class="footer-bottom">
+          Website made by <img src="media/logo-footer.png" alt="logo-footer" class="logo-footer2">
+      </div>
+  </footer>
+
+  <script>
+      const mascot = document.getElementById("mascot");
+      const bubble = document.getElementById("bubble");
+
+      function typeText(text) {
+      bubble.innerHTML = "";
+      bubble.style.display = "block";
+
+      let i = 0;
+      const interval = setInterval(() => {
+          bubble.innerHTML += text[i];
+          i++;
+          if (i >= text.length) clearInterval(interval);
+      }, 80);
+      }
+
+      mascot.addEventListener("click", () => {
+      mascot.classList.add("wave");
+      typeText("Small team, big vision");
+
+      setTimeout(() => mascot.classList.remove("wave"), 1600);
+      setTimeout(() => bubble.style.display = "none", 3500);
+      });
+  </script>
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
