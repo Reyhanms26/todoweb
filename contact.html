@@ -122,19 +122,6 @@ body {
   background: #4f46e5;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .contact-wrapper {
-    grid-template-columns: 1fr;
-  }
-}
-.alert {
-  display: none;
-  margin-bottom: 16px;
-  padding: 12px 14px;
-  border-radius: 10px;
-  font-size: 14px;
-}
 
 /* SUCCESS */
 .alert.success {
@@ -162,28 +149,28 @@ body {
 </head>
 <body>
   <nav class="navbar-custom">
-      <div class="container">
-          <ul class="nav align-items-center">
-              <li class="nav-item">
-                  <a class="navbar-brand" href="#">
-                      <img src="media/logo-terang.png" alt="" class="logo">
-                  </a>
-              </li>
-              <li class="nav-item mx-auto">
-                  <div class="d-flex home">
-                      <ul>
-                          <li><a class="nav-link" href="index.html">Home</a></li>
-                          <li><a class="nav-link" href="galery.html">Gallery<a></a></li>
-                          <li><a class="nav-link" href="about.html">About Us</a></li>
-                      </ul>
-                  </div>
-              </li>
-              <li class="nav-item">
-                  <a class="btn login" href="login.html" role="button">Log In</a>
-              </li>
-          </ul>
-      </div>
-  </nav>
+        <div class="container">
+            <ul class="nav align-items-center">
+                <li class="nav-item">
+                    <a class="navbar-brand" href="#">
+                        <img src="media/logo-terang.png" alt="" class="logo">
+                    </a>
+                </li>
+                <li class="nav-item mx-auto">
+                    <div class="d-flex home">
+                        <ul>
+                            <li><a class="nav-link" href="index.html">Home</a></li>
+                            <li><a class="nav-link nav-custom" href="galery.html">Gallery<a></a></li>
+                            <li><a class="nav-link" href="about.html">About Us</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="btn login" href="login.html" role="button">Log In</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
   <banner>
       <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
@@ -256,7 +243,7 @@ body {
   <h1 class="page-title">Contact Us</h1>
   <p class="page-subtitle">We’d love to hear from you</p>
 
-  <div class="contact-wrapper">
+  <div class="contact-wrapper scale-fade">
 
     <!-- INFO BOX -->
     <div class="contact-info">
@@ -285,7 +272,7 @@ body {
     </div>
 
     <!-- FORM BOX -->
-    <div class="contact-form">
+    <div class="contact-form scale-fade">
       <h2>Send a Message</h2>
 
       <div id="alert" class="alert"></div>
