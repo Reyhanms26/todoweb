@@ -2,143 +2,237 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jam Digital + Auto Dark Mode</title>
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
-    .top-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
+    /* ================= GLOBAL ================= */
+    * {
+      box-sizing: border-box;
     }
 
-    .clock-box {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 2px;
-      width: fit-content;
-      padding: 6px 10px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-    }
-    .clock {
-      font-size: clamp(12px, 2vw, 16px);
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    #modeText {
-      font-size: clamp(9px, 1.5vw, 11px);
-      opacity: 0.75;
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6fb;
+      padding: 40px;
+      transition: 0.3s;
     }
 
     body.light {
       background: #d9dff0;
       color: #111;
     }
+
     body.dark {
       background: #1c253a;
       color: #f8fafc;
     }
 
-    .dropdown .btn {
-      font-size: 12px;
-      padding: 4px 10px;
-      color: #111;
-      background-color: #d9dff0;
+    /* ================= TOP BAR ================= */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .clock-box {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 6px 10px;
+      border-radius: 10px;
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(8px);
       box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     }
-    .foto{
+
+    .clock {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    #modeText {
+      font-size: 11px;
+      opacity: 0.75;
+    }
+
+    .dropdown .btn {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      padding: 4px 10px;
+    }
+
+    .foto {
       width: 20px;
     }
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6fb;
-      padding: 40px;
-    }
+
+    /* ================= TITLE ================= */
     .title {
       text-align: center;
       margin-bottom: 25px;
     }
+
+    /* ================= FORM ================= */
     .todo-form {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
       margin-bottom: 20px;
     }
-    .todo-form input,
-    .todo-form button {
-      font-size: clamp(14px, 2.5vw, 16px);
-    }
-    .input{
+
+    .input {
       border-radius: 10px;
+      padding: 8px;
     }
-    .input1{
+
+    .input1 {
       border-radius: 10px;
-      background-color: black;
-      color: #f4f6fb;
+      background: black;
+      color: white;
+      padding: 8px 14px;
     }
+
+    /* ================= FILTER ================= */
     .filter {
       margin-bottom: 25px;
     }
 
+    /* ================= TODO ================= */
     .todo-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
+
     .todo-card {
       background: white;
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+
     .todo-card.done {
       opacity: 0.6;
       text-decoration: line-through;
     }
+
     .todo-header {
       display: flex;
       align-items: center;
       gap: 10px;
       color: black;
     }
-    .todo-header h4{
+
+    .todo-header h4 {
       color: black;
+      margin: 0;
     }
+
     .todo-card small {
       color: #666;
     }
+
     .todo-actions {
       margin-top: 10px;
     }
+
     .todo-actions button {
       margin-right: 5px;
-      padding: 5px 10px;
+    }
+
+    /* ================= RESPONSIVE MOBILE ================= */
+    @media (max-width: 768px) {
+
+      body {
+        padding: 20px;
+      }
+
+      .clock {
+        font-size: 18px;
+      }
+
+      #modeText {
+        font-size: 12px;
+      }
+
+      .foto {
+        width: 26px;
+      }
+
+      .title {
+        font-size: 26px;
+      }
+
+      .todo-form {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .todo-form input,
+      .todo-form button {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px;
+      }
+
+      .filter {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .filter input,
+      .filter button {
+        width: 100%;
+        font-size: 15px;
+        padding: 10px;
+      }
+
+      .todo-container {
+        grid-template-columns: 1fr;
+      }
+
+      .todo-card {
+        padding: 18px;
+      }
+
+      .todo-header h4 {
+        font-size: 18px;
+      }
+
+      .todo-card small {
+        font-size: 14px;
+      }
+
+      .todo-actions button {
+        padding: 8px 12px;
+        font-size: 14px;
+      }
     }
   </style>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
+
 <body>
+
   <div class="top-bar">
     <div class="clock-box">
       <div id="clock" class="clock">00:00:00</div>
       <div id="modeText"></div>
     </div>
+
     <div class="dropdown">
-      <button class="btn dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown">
-        <img src="media/foto2.png" alt="foto" class="foto">
+      <button class="btn dropdown-toggle btn-sm" data-bs-toggle="dropdown">
+        <img src="media/foto2.png" class="foto">
       </button>
       <ul class="dropdown-menu dropdown-menu-end">
         <li><a class="dropdown-item" href="index.html">Home</a></li>
@@ -152,15 +246,15 @@
   <h2 class="title"><br><br>To Do List</h2>
 
   <div class="todo-form">
-    <input type="text" id="titleInput" placeholder="Title" class="input">
-    <input type="text" id="descInput" placeholder="Note" class="input">
+    <input id="titleInput" placeholder="Title" class="input">
+    <input id="descInput" placeholder="Note" class="input">
     <input type="date" id="dateInput" class="input">
     <input type="time" id="timeInput" class="input">
     <button id="addBtn" class="input1"><b>Add</b></button>
   </div>
 
   <div class="filter">
-    <label> Date filter </label>
+    <label>Date filter</label>
     <input type="date" id="filterDate" class="input">
     <button id="resetFilter" class="input1"><b>Reset</b></button>
   </div>
@@ -169,31 +263,21 @@
 
   <script>
     function updateClock() {
-    const now = new Date();
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, "0");
+      const m = String(now.getMinutes()).padStart(2, "0");
+      const s = String(now.getSeconds()).padStart(2, "0");
 
-    let hours = now.getHours();
-    let minutes = now.getMinutes();
-    let seconds = now.getSeconds();
-
-    hours = hours < 10 ? "0" + hours : hours;
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-
-    document.getElementById("clock").innerText =
-      `${hours}:${minutes}:${seconds}`;
-
-    setGreetingAndMode(now.getHours());
+      document.getElementById("clock").innerText = `${h}:${m}:${s}`;
+      setGreetingAndMode(now.getHours());
     }
 
     function setGreetingAndMode(hour) {
-      const body = document.body;
-      const modeText = document.getElementById("modeText");
-
       if (hour >= 6 && hour < 18) {
-        body.className = "light";
+        document.body.className = "light";
         modeText.innerText = "Day Mode ☀️";
       } else {
-        body.className = "dark";
+        document.body.className = "dark";
         modeText.innerText = "Night Mode 🌙";
       }
     }
@@ -208,123 +292,89 @@
     const dateInput = document.getElementById("dateInput");
     const timeInput = document.getElementById("timeInput");
     const addBtn = document.getElementById("addBtn");
-
     const filterDate = document.getElementById("filterDate");
     const resetFilter = document.getElementById("resetFilter");
-
     const todoContainer = document.getElementById("todoContainer");
 
     let todos = JSON.parse(localStorage.getItem("todos")) || [];
 
-    addBtn.addEventListener("click", () => {
-      if (
-        titleInput.value === "" ||
-        descInput.value === "" ||
-        dateInput.value === "" ||
-        timeInput.value === ""
-      ) {
+    addBtn.onclick = () => {
+      if (!titleInput.value || !descInput.value || !dateInput.value || !timeInput.value) {
         alert("Semua field wajib diisi!");
         return;
       }
 
-      const todo = {
+      todos.push({
         id: Date.now(),
         title: titleInput.value,
         desc: descInput.value,
         date: dateInput.value,
         time: timeInput.value,
         done: false
-      };
-
-      todos.push(todo);
-      saveData();
-      renderTodos(todos);
-      clearInput();
-    });
-
-    function clearInput() {
-      titleInput.value = "";
-      descInput.value = "";
-      dateInput.value = "";
-      timeInput.value = "";
-    }
-
-    function saveData() {
-      localStorage.setItem("todos", JSON.stringify(todos));
-      alert("Note sudah tersimpan");
-    }
-
-    function formatDate(dateStr) {
-      const date = new Date(dateStr);
-      return date.toLocaleDateString("id-ID", {
-        day: "numeric",
-        month: "long",
-        year: "numeric"
       });
-    }
+
+      localStorage.setItem("todos", JSON.stringify(todos));
+      renderTodos(todos);
+      titleInput.value = descInput.value = dateInput.value = timeInput.value = "";
+    };
 
     function renderTodos(data) {
       todoContainer.innerHTML = "";
-
       data.forEach(todo => {
         const card = document.createElement("div");
         card.className = `todo-card ${todo.done ? "done" : ""}`;
-
         card.innerHTML = `
           <div class="todo-header">
             <input type="checkbox" ${todo.done ? "checked" : ""}>
             <h4>${todo.title}</h4>
           </div>
-          <small>${todo.desc} <br> </small>
-          <small>📅 ${formatDate(todo.date)}</small><br>
+          <small>${todo.desc}</small><br>
+          <small>📅 ${todo.date}</small><br>
           <small>⏰ ${todo.time}</small>
-
           <div class="todo-actions">
-            <button class="edit input1"><b>Edit<b></button>
-            <button class="delete input1"><b>Hapus<b></button>
+            <button class="input1 edit">Edit</button>
+            <button class="input1 delete">Hapus</button>
           </div>
         `;
 
-        card.querySelector("input").addEventListener("change", () => {
+        card.querySelector("input").onchange = () => {
           todo.done = !todo.done;
-          saveData();
+          localStorage.setItem("todos", JSON.stringify(todos));
           renderTodos(todos);
-        });
+        };
 
-        card.querySelector(".delete").addEventListener("click", () => {
+        card.querySelector(".delete").onclick = () => {
           todos = todos.filter(t => t.id !== todo.id);
-          saveData();
+          localStorage.setItem("todos", JSON.stringify(todos));
           renderTodos(todos);
-        });
+        };
 
-        card.querySelector(".edit").addEventListener("click", () => {
+        card.querySelector(".edit").onclick = () => {
           titleInput.value = todo.title;
           descInput.value = todo.desc;
           dateInput.value = todo.date;
           timeInput.value = todo.time;
-
           todos = todos.filter(t => t.id !== todo.id);
-          saveData();
+          localStorage.setItem("todos", JSON.stringify(todos));
           renderTodos(todos);
-        });
+        };
 
         todoContainer.appendChild(card);
       });
     }
 
-    filterDate.addEventListener("change", () => {
-      const filtered = todos.filter(todo => todo.date === filterDate.value);
-      renderTodos(filtered);
-    });
+    filterDate.onchange = () => {
+      renderTodos(todos.filter(t => t.date === filterDate.value));
+    };
 
-    resetFilter.addEventListener("click", () => {
+    resetFilter.onclick = () => {
       filterDate.value = "";
       renderTodos(todos);
-    });
+    };
 
     renderTodos(todos);
-
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
