@@ -216,6 +216,51 @@ body {
   color: #7f1d1d;
   border: 1px solid #ef4444;
 }
+/* ===== RESPONSIVE MOBILE ===== */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 40px 16px;
+  }
+
+  .page-title {
+    font-size: 26px;
+  }
+
+  .page-subtitle {
+    font-size: 14px;
+    margin-bottom: 28px;
+  }
+
+  .contact-wrapper {
+    grid-template-columns: 1fr; /* jadi 1 kolom */
+    gap: 20px;
+  }
+
+  .contact-info,
+  .contact-form {
+    padding: 22px;
+  }
+
+  .contact-info h2,
+  .contact-form h2 {
+    font-size: 20px;
+  }
+
+  .map {
+    height: 180px; /* biar ga kegedean di HP */
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+  }
+
+  .contact-form button {
+    font-size: 14px;
+    padding: 13px;
+  }
+}
+
     </style>
 
     <link rel="stylesheet" href="style.css">
