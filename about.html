@@ -83,6 +83,139 @@
         .card:hover .card-back {
         transform: translateX(0);
         }
+
+          * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+/* SECTION */
+.contact-section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.page-subtitle {
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 40px;
+  color: #64748b;
+}
+
+/* WRAPPER */
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* BOX */
+.contact-info,
+.contact-form {
+  background: white;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* INFO */
+.contact-info h2,
+.contact-form h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+/* MAP */
+.map {
+  margin-top: 16px;
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* FORM */
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.2);
+}
+
+.contact-form button {
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: #6366f1;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: #4f46e5;
+}
+
+
+/* SUCCESS */
+.alert.success {
+  display: block;
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #10b981;
+}
+
+/* ERROR */
+.alert.error {
+  display: block;
+  background: #fef2f2;
+  color: #7f1d1d;
+  border: 1px solid #ef4444;
+}
     </style>
 
     <link rel="stylesheet" href="style.css">
@@ -92,7 +225,6 @@
     <link rel="icon" type="image/png" href="media/logo.png">
 </head>
 <body>
-    ody>
   <nav class="navbar-custom">
         <div class="container">
             <ul class="nav align-items-center">
@@ -105,8 +237,8 @@
                     <div class="d-flex home">
                         <ul>
                             <li><a class="nav-link" href="index.html">Home</a></li>
-                            <li><a class="nav-link nav-custom" href="galery.html">Gallery<a></a></li>
-                            <li><a class="nav-link" href="about.html">About Us</a></li>
+                            <li><a class="nav-link" href="galery.html">Gallery<a></a></li>
+                            <li><a class="nav-link nav-custom" href="about.html">About Us</a></li>
                         </ul>
                     </div>
                 </li>
@@ -116,7 +248,6 @@
             </ul>
         </div>
     </nav>
-
 
     <banner>
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
@@ -215,6 +346,56 @@
             </div>
         </div>
     </div>
+
+    
+<section class="contact-section">
+  <h1 class="page-title">Contact Us</h1>
+  <p class="page-subtitle">We’d love to hear from you</p>
+
+  <div class="contact-wrapper">
+
+    <!-- INFO BOX -->
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+
+      <div class="info-item">
+        <p>📧 support@yourweb.com</p>
+      </div>
+
+      <div class="info-item">
+        <p>📞 +62 812-3456-7890</p>
+      </div>
+
+      <div class="info-item">
+        <p>📍 Tangerang, Indonesia</p>
+      </div>
+
+      <!-- GOOGLE MAPS -->
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps?q=Tangerang,Indonesia&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- FORM BOX -->
+    <div class="contact-form">
+      <h2>Send a Message</h2>
+
+      <div id="alert" class="alert"></div>
+
+      <form id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+  </div>
+</section>
 
     <footer class="footer">
         <div class="footer-row">
